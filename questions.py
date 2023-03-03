@@ -100,7 +100,7 @@ class Question():
         return result
     
     def ask_user_boolean(self, true_value, false_value, loop):
-        """_summary_
+        """Asks a question and converts the answer into a boolean value
 
         Args:
             true_value (str): value to use as True
