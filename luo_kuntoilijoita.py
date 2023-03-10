@@ -3,109 +3,28 @@
 
 # LIBRARIES AND MODULES
 import kuntoilija
+import questions
 
 
 
 # Ask a question and convert the answer to float
 
 
-def ask_user(question):
-    """Asks a question from the user and converts answer to a floating point number
-
-    Args:
-        question (str): The question to ask
-
-    Returns:
-        tuple: answer as float, Error message, Error Code and a detailed error message
-    """
-    while True:
-        answer_txt = input(question)
-
-        # Let's try to convert input to numeric
-        try:
-            answer = float(answer_txt)
-            result = (answer, 'OK', 0, 'Conversion successful')
-            break
-    # If an error occurs tell the user to check
-        except Exception as e:
-            print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
-            result = (0, 'Error', 1, str(e))
-    return result
-
-
 # Enter information about an athlete
 nimi = input('Nimi: ')
 
-# Use ask_user function to get height and convert it into float
-answer = ask_user('Pituus (cm) ')
-
-# Read the 1st element of the tuple containing height value
-pituus = answer[0]
-
-answer = ask_user('Paino (kg) ')
-paino = answer[0]
-
-answer = ask_user('Ikä ')
-ika = answer[0]
-
-answer = ask_user('Sukupuoli 0-nainen, 1-mies) ')
-sukupuoli = answer[0]
-
-
-'''
-# Loop until user gives a correctly formatted value to height question
-while True:
-    pituus_txt = input('Pituus (cm): ')
-
-    # Let's try to convert input to numeric
-    try:
-        pituus = float(pituus_txt)
-        break
-    # If an error occurs tell the user to check 
-    except Exception as e:
-        print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
-
-# Loop until correct weight value
-while True:
-    paino_txt = input('Paino (kg): ')
-
-    # Let's try to convert input to numeric
-    try:
-        paino = float(paino_txt)
-        break
-    # If an error occurs tell the user to check 
-    except Exception as e:
-        print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
-
-# Loop until correct age value
-while True:
-    ika_txt = input('Ikä: ')
-
-    # Let's try to convert input to numeric
-    try:
-        ika = float(ika_txt)
-        break
-    # If an error occurs tell the user to check 
-    except Exception as e:
-        print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
-
-
-# Loop until correct gender value
-while True:
-    sukupuoli_txt = input('Sukupuoli, 1 mies, 0 nainen: ')
-
-    # Let's try to convert input to numeric
-    try:
-        sukupuoli = float(sukupuoli_txt)
-        break
-    # If an error occurs tell the user to check 
-    except Exception as e:
-        print('Virhe syötetyssä arvossa, vain 1 ja 0 sallittu', e)
-
-'''
-kuntoilija1 = kuntoilija.Kuntoilija(nimi, pituus, paino, ika, sukupuoli)
-
-print(kuntoilija1.nimi, 'painoindeksisi on ', kuntoilija1.bmi)
-
-print('Viimeisen kysymyksen virheilmoitus',
-      answer[1], 'koodi', answer[2], 'engl. ilmoitus', answer[3])
+# Ask details about him/her
+question1 = questions.Question('Kuinka paljon painat (kg): ')
+weight = question1.ask_user_float(True)
+question2 = questions.Question('Kuinka pitkä olet (cm): ')
+height = question2.ask_user_float(True)
+question3 = questions.Question('Minkä ikäinen olet: ')
+age = question3 = question3.ask_user_integer(True)
+question4 = questions.Question('Sukupuoli: mies(1), nainen(0): ')
+gender = question4.ask_user_integer(True)
+question5 = questions.Question('Niskasi ympärysmitta: ')
+neck = question5.ask_user_float(True)
+question6 = questions.Question('Vyötärösi ympärysmitta: ')
+waist = question6.ask_user_float(True)
+question7 = questions.Question('Lantiosi ympärysmitta: ')
+hips = question7.ask_user_float(True)
