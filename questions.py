@@ -122,10 +122,12 @@ class Question():
                 if answer_txt == true_value.lower():
                     answer = True
                     result = (answer, 'OK', 0, 'Conversion successful')
+                    break
                 
                 elif answer_txt == false_value.lower():
                     answer = False
                     result = (answer, 'OK', 0, 'Conversion successful')
+                    break
 
                 else: 
                     print('Virhe syötetyssä arvoss, sallitut arvot', true_value, false_value)
