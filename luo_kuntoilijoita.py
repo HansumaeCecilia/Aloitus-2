@@ -11,20 +11,36 @@ import questions
 
 
 # Enter information about an athlete
-nimi = input('Nimi: ')
+name = input('Anna nimesi: ')
 
 # Ask details about him/her
-question1 = questions.Question('Kuinka paljon painat (kg): ')
-weight = question1.ask_user_float(True)
-question2 = questions.Question('Kuinka pitkä olet (cm): ')
-height = question2.ask_user_float(True)
-question3 = questions.Question('Minkä ikäinen olet: ')
-age = question3 = question3.ask_user_integer(True)
-question4 = questions.Question('Sukupuoli: mies(1), nainen(0): ')
-gender = question4.ask_user_integer(True)
-question5 = questions.Question('Niskasi ympärysmitta: ')
-neck = question5.ask_user_float(True)
-question6 = questions.Question('Vyötärösi ympärysmitta: ')
-waist = question6.ask_user_float(True)
-question7 = questions.Question('Lantiosi ympärysmitta: ')
-hips = question7.ask_user_float(True)
+question = questions.Question('Anna painosi (kg): ')
+weight = question.ask_user_float(True)[0]
+question = questions.Question('Anna pituutesi (cm): ')
+height = question.ask_user_float(True)[0]
+question = questions.Question('Anna ikäsi: ')
+age = question.ask_user_integer(True)[0]
+question = questions.Question('Sukupuoli: mies(1), nainen(0): ')
+gender = question.ask_user_integer(True)[0]
+question = questions.Question('Anna niskasi ympärysmitta: ')
+neck = question.ask_user_float(True)[0]
+question = questions.Question('Anna vyötärösi ympärysmitta: ')
+waist = question.ask_user_float(True)[0]
+if gender == 0:
+    question = questions.Question('Lantiosi ympärysmitta: ')
+    hips = question.ask_user_float(True)[0]
+
+# Create an athlete object from Kuntoilija class
+athlete = kuntoilija.Kuntoilija(name, height, weight, age, gender)
+
+#Print some information about the athlete
+text_to_show = f'Terve {athlete.nimi}, painoindeksisi tänään on: {athlete.bmi}'
+print(text_to_show)
+fat_percentage = athlete.rasvaprosentti()
+if gender == 1:
+    usa_fat_percentage = athlete.usa_rasvaprosentti_mies(height, waist, neck)
+else:
+    usa_fat_percentage = athlete.usa_rasvaprosentti_nainen(height, waist, hips, neck)
+
+text_to_show = f'Suomalainen rasva-% on {fat_percentage} ja amerikkalainen rasva-% on {usa_fat_percentage}'
+print(text_to_show)
