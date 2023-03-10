@@ -64,7 +64,7 @@ def usarasvaprosentti_mies(pituus, vyotaron_ymparys, kaulan_ymparys):
     Args:
         pituus (float): pituus (cm)
         vuotaron_ymparys (float): vatsan ympärysmitta (cm)
-        kaulan_ymparys (flaot): kaulan ympärusmitta (cm)
+        kaulan_ymparys (float): kaulan ympärusmitta (cm)
 
     Returns:
         float: rasvaprosentti
@@ -101,6 +101,7 @@ def usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_y
 
     usa_rasvaprosentti = 163.205 * math.log10(tuuma_vyotaron_ymparys + tuuma_lantion_ymparys -
                                                tuuma_kaulan_ymparys) - 97.684 * math.log10(tuuma_pituus) - 78.387
+    usa_rasvaprosentti = round(usa_rasvaprosentti, 1)
     return usa_rasvaprosentti
 
 
