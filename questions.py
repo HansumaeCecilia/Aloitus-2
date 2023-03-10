@@ -49,6 +49,7 @@ class Question():
         return result
         
 
+    # TODO: Make all conversion functions static
     def ask_user_float(self, loop):
         """Asks a question and converts the answer to a floating point number
 
