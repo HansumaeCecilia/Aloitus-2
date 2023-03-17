@@ -1,11 +1,11 @@
 [
     {
-        "nimi": "Erkki",
+        "Nimi": "Erkki",
         "Pituus": 171,
         "Paino": 75.5
     },
     {
-        "nimi": "Aapo",
+        "Nimi": "Aapo",
         "Pituus": 180,
         "Paino": 74.5
     }
