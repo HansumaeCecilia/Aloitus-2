@@ -44,3 +44,7 @@ else:
 
 text_to_show = f'Suomalainen rasva-% on {fat_percentage} ja amerikkalainen rasva-% on {usa_fat_percentage}'
 print(text_to_show)
+
+#TODO: Save user information to a file -> Serialization
+#TODO: Read it from a JSON file
+#TODO: Add date of weighing to kuntoilija-class

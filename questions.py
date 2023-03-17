@@ -149,7 +149,7 @@ class Question():
             tuple: answer as integer, error message, error code, detailed error
         """
 
-        # If loop argument is true use while loop until user inputs correct value
+        # If loop argument is true, use while loop until user inputs correct value
         prompt = f'{self.question}, vastaa {true_value}/{false_value}: '
         if loop == True:
             
