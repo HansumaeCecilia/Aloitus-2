@@ -69,6 +69,7 @@ jumppari2 = {'nimi': 'Aapo', 'Pituus': 180, 'Paino': 74.5}
 json_jumppari = json.dumps(jumppari)
 print(jumppari)
 
+"""
 # Luodaan tiedosto
 file_to_use = open('kuntoilijat.json', 'x')
 file_to_use.close() # Muista aina sulkea tiedosto operaation jälkeen
@@ -83,8 +84,8 @@ file_to_use = open('kuntoilijat.json', 'r')
 data = json.load(file_to_use)
 file_to_use.close()
 print(data)
+"""
 
-# # Lisätään toinen JSON-objekti tiedoston loppuun
-# file_to_use = open('kuntolijat.json', 'a')
-# json.dump(jumppari2, file_to_use)
-# file_to_use.close()
+# Lisätään toinen JSON-objekti tiedoston loppuun
+with open('kuntoilijat.json', 'a') as file_to_use:
+    json.dump(jumppari2, file_to_use)
