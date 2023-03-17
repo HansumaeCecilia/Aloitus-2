@@ -1,1 +1,12 @@
-{"nimi": "Erkki", "Pituus": 171, "Paino": 75.5}{"nimi": "Aapo", "Pituus": 180, "Paino": 74.5}
+[
+    {
+        "nimi": "Erkki",
+        "Pituus": 171,
+        "Paino": 75.5
+    },
+    {
+        "nimi": "Aapo",
+        "Pituus": 180,
+        "Paino": 74.5
+    }
+]
