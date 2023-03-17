@@ -67,8 +67,8 @@ jumppari_lista = []
 
 
 # Määritellään Python-sanakirja
-jumppari = {'nimi': 'Erkki', 'Pituus': 171, 'Paino': 75.5}
-jumppari2 = {'nimi': 'Aapo', 'Pituus': 180, 'Paino': 74.5}
+jumppari = {'Nimi': 'Erkki', 'Pituus': 171, 'Paino': 75.5}
+jumppari2 = {'Nimi': 'Aapo', 'Pituus': 180, 'Paino': 74.5}
 
 # Lisätään jumpparit listaan
 jumppari_lista.append(jumppari)
