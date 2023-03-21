@@ -20,14 +20,15 @@ weight = questions.Question.ask_user_float(
     'Kuinka paljon painat (kg): ', True)[0]
 height = questions.Question.ask_user_float('Kuinka pitkä olet (cm): ', True)[0]
 age = questions.Question.ask_user_integer('Kuinka vanha olet: ', True)[0]
-gender = questions.Question.ask_user_integer(
-    'Sukupuoli 1 mies, 0 nainen: ', True)[0]
+allowed_genders = {'1': 1, '0': 0}
+gender = questions.Question.ask_user_dictionary(
+    'Sukupuoli 1 mies, 0 nainen: ', allowed_genders, True)[0]
 neck = questions.Question.ask_user_float(
     'Mikä on kaulanympäryksesi (cm): ', True)[0]
 waist = questions.Question.ask_user_float(
     'Mikä on vyötärönympäryksesi: ', True)[0]
 
-# If woman ask circumference of her hips
+# If the athelete is a woman, ask the circumference of her hips
 if gender == 0:
     hips = questions.Question.ask_user_float(
         'Mikä on lantionympäryksesi: ', True)[0]
@@ -41,7 +42,7 @@ text_to_show = f'Terve {athlete.nimi}, painoindeksisi tänään on {athlete.bmi}
 print(text_to_show)
 fat_percentage = athlete.rasvaprosentti()
 
-# If male use usa_rasvaprosentti_mies method
+# If male, use usa_rasvaprosentti_mies method
 if gender == 1:
     usa_fat_percentage = athlete.usa_rasvaprosentti_mies(height, waist, neck)
 else:
@@ -51,17 +52,19 @@ else:
 text_to_show = f'Suomalainen rasva-% on {fat_percentage} ja amerikkalainen rasva% on {usa_fat_percentage}'
 print(text_to_show)
 
-print('nimi', athlete.nimi, 'paino', athlete.paino)
+print('Nimi:', athlete.nimi, 'Paino:', athlete.paino)
 
 athlete_data = [] # Empty list for all athlete data
 
-#Read previous athlete_data from disk
+# Read previous athlete_data from disk
 with open('athlete_data.json', 'r') as file:
     athlete_data = json.load(file)
+    for item in athlete_data:
+        print('Paino oli', item['paino'])
 
 # A dictionary for single weighing of an athlete
-athlete_data_row = {'nimi': athlete.nimi, 'pituus': athlete.pituus, 'paino': athlete.paino,
-                'ika': athlete.ika, 'sukupuoli': athlete.sukupuoli, 'pvm': athlete.punnitus_paiva}
+athlete_data_row = {'Nimi:': athlete.nimi, 'Pituus:': athlete.pituus, 'Paino:': athlete.paino,
+                'Ika:': athlete.ika, 'Sukupuoli:': athlete.sukupuoli, 'pvm:': athlete.punnitus_paiva}
 
 # Add a new data row to the athlete_data list
 athlete_data.append(athlete_data_row)
@@ -69,6 +72,4 @@ athlete_data.append(athlete_data_row)
 # SAVE DATA TO A FILE
 
 with open('athlete_data.json', 'w') as file:
-    json.dump(athlete_data, file)
-
-# TODO: Read it from a JSON file
+    json.dump(athlete_data, file, indent=4)
