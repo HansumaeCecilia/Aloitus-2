@@ -50,8 +50,8 @@ def test_ask_user_float3(monkeypatch): # Simulate user input using Monkeypatch l
 def test_ask_user_boolean(monkeypatch): # monkeypatch-module as argument
     user_input = 'y'
     monkeypatch.setattr('builtins.input', lambda _: user_input)
-    question = questions.Question('Haluatko jatkaa? ')
-    assert question.ask_user_boolean('Y', 'N', False) == (True, 'OK', 0, 'Conversion successful')
+    #question = questions.Question('Haluatko jatkaa? ')
+    assert questions.Question.ask_user_boolean('Haluatko jatkaa?', 'Y', 'N', False) == (True, 'OK', 0, 'Conversion successful')
 
 # Test conversion to boolean: case N
 def test_ask_user_boolean2(monkeypatch): # monkeypatch-module as argument
