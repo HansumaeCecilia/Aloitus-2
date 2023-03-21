@@ -153,6 +153,6 @@ if __name__ == "__main__":
 
     else:
         usa_rasvaprosentti = usarasvaprosentti_nainen(
-            pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys)
+            pituus, vyotaron_ymparys, kaulan_ymparys, lantion_ymparys)
 
     print('USA:n armeijan kaavalla rasvaprosenttisi on', usa_rasvaprosentti)
